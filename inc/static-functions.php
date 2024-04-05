@@ -75,27 +75,30 @@ function wpac_get_postion_txt($id){
         
     }
 }
-function wpac_social_sharing_icons(){
-    $desktop_position = wpac_get_postion_txt(get_option('wpac_sharing_desktop_position','left'));
-    $mobile_position = wpac_get_postion_txt(get_option('wpac_sharing_mobile_position','bottom'));
-    $FB_url = "http://www.facebook.com/sharer.php?u=".get_the_permalink(get_the_ID());
-    $TW_url = "https://twitter.com/share?url=".get_the_permalink(get_the_ID());
-    $WA_url = "https://api.whatsapp.com/send?&text=".get_the_title(get_the_ID())." ".get_the_permalink(get_the_ID());
-    ?>
-    <div class="wpac-social-bar desktop-<?php echo $desktop_position ?> mobile-<?php echo $mobile_position ?>">
-        <a href="javascript:" onclick="openShareWindow('<?php echo $FB_url ?>')" class="wpac-share-icon fb">
-            <i class="fa fa-facebook"></i>
-        </a>
-        <a href="javascript:" onclick="openShareWindow('<?php echo $TW_url ?>')" class="wpac-share-icon tw">
-            <i class="fa fa-twitter"></i>
-        </a>
-        <a href="javascript:" onclick="openShareWindow('<?php echo $WA_url ?>')" class="wpac-share-icon wa">
-            <i class="fa fa-whatsapp"></i>
-        </a>
-        <a href="mailto:?subject=<?php echo get_the_title(get_the_ID()) ?>&body=<?php echo get_the_permalink(get_the_ID()) ?>" class="wpac-share-icon em">
-            <i class="fa fa-envelope"></i>
-        </a>
-    </div>
-    <?php
+$sharing_feature_status = wpac_get_postion_txt(get_option('wpac_sharing_status','1'));
+if($sharing_feature_status == 1){
+    function wpac_social_sharing_icons(){
+        $desktop_position = wpac_get_postion_txt(get_option('wpac_sharing_desktop_position','left'));
+        $mobile_position = wpac_get_postion_txt(get_option('wpac_sharing_mobile_position','bottom'));
+        $FB_url = "http://www.facebook.com/sharer.php?u=".get_the_permalink(get_the_ID());
+        $TW_url = "https://twitter.com/share?url=".get_the_permalink(get_the_ID());
+        $WA_url = "https://api.whatsapp.com/send?&text=".get_the_title(get_the_ID())." ".get_the_permalink(get_the_ID());
+        ?>
+        <div class="wpac-social-bar desktop-<?php echo $desktop_position ?> mobile-<?php echo $mobile_position ?>">
+            <a href="javascript:" onclick="openShareWindow('<?php echo $FB_url ?>')" class="wpac-share-icon fb">
+                <i class="fa fa-facebook"></i>
+            </a>
+            <a href="javascript:" onclick="openShareWindow('<?php echo $TW_url ?>')" class="wpac-share-icon tw">
+                <i class="fa fa-twitter"></i>
+            </a>
+            <a href="javascript:" onclick="openShareWindow('<?php echo $WA_url ?>')" class="wpac-share-icon wa">
+                <i class="fa fa-whatsapp"></i>
+            </a>
+            <a href="mailto:?subject=<?php echo get_the_title(get_the_ID()) ?>&body=<?php echo get_the_permalink(get_the_ID()) ?>" class="wpac-share-icon em">
+                <i class="fa fa-envelope"></i>
+            </a>
+        </div>
+        <?php
+    }
+    add_action('wp_footer', 'wpac_social_sharing_icons');
 }
-add_action('wp_footer', 'wpac_social_sharing_icons');

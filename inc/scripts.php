@@ -13,10 +13,13 @@ if( !function_exists('wpac_plugin_scripts')) {
         //Plugin Frontend CSS
         wp_enqueue_style('wpac-css', WPAC_PLUGIN_DIR. 'assets/css/front-end.css');
 
-        //FontAwesome CSS
-        wp_enqueue_style( 'font-awesome', WPAC_PLUGIN_DIR. 'assets/font-awesome/css/all.min.css', array(), NULL);
-        wp_enqueue_style( 'font-awesome-v4', WPAC_PLUGIN_DIR. 'assets/font-awesome/css/v4-shims.min.css', array(), NULL);
-        
+        $font_awesome_status = get_option('wpac_font_icons','1');
+        if($font_awesome_status == 1){
+            //FontAwesome CSS
+            wp_enqueue_style( 'font-awesome', WPAC_PLUGIN_DIR. 'assets/font-awesome/css/all.min.css', array(), NULL);
+            wp_enqueue_style( 'font-awesome-v4', WPAC_PLUGIN_DIR. 'assets/font-awesome/css/v4-shims.min.css', array(), NULL);
+        }
+
         //Plugin JS
         wp_enqueue_script('wpac-ajax', WPAC_PLUGIN_DIR. 'assets/js/ajax.js', 'jQuery');
         wp_enqueue_script('wpac-frontend-ajax', WPAC_PLUGIN_DIR. 'assets/js/frontend.js');
