@@ -1,6 +1,33 @@
 <?php
+// Sharing Display Setting Fields
+function wpac_sharing_status_cb(){ 
+    // get the value of the setting we've registered with register_setting()
+    $setting = get_option('wpac_sharing_status');
 
-// Reactions Display Setting Fields
+    // output the field
+    ?>
+    <select name="wpac_sharing_status">
+        <?php
+        switch($setting) {
+
+            case 1:
+                echo '<option value="1">Enabled</option>';
+                echo '<option value="2">Disabled</option>';
+                break;
+            case 2:
+                echo '<option value="2">Disabled</option>';
+                echo '<option value="1">Enabled</option>';
+                break;
+            default: 
+                echo '<option value="1">Enabled</option>';
+                echo '<option value="2">Disabled</option>';
+            
+        }
+        ?>
+    </select>
+    <?php
+}
+// Sharing Display Setting Fields
 function wpac_sharing_desktop_position_cb(){ 
     // get the value of the setting we've registered with register_setting()
     $setting = get_option('wpac_sharing_desktop_position');

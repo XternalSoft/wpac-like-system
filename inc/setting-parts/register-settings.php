@@ -4,6 +4,7 @@ function wpac_plugin_settings(){
     // register settings for "wpac-settings" page
     register_setting( 'wpac-settings', 'wpac_system_type', ['default' => '1']);
     register_setting( 'wpac-settings', 'wpac_save_type', ['default' => '1']);
+    register_setting( 'wpac-settings', 'wpac_font_icons', ['default' => '1']);
     register_setting( 'wpac-settings', 'wpac_status_message_liked', ['default' => 'Your Like is Saved Successfully']);
     register_setting( 'wpac-settings', 'wpac_status_error_liked', ['default' => 'Sorry, you already liked this post']);
     register_setting( 'wpac-settings', 'wpac_status_message_disliked', ['default' => 'Your Dislike is Saved Successfully']);
@@ -34,6 +35,7 @@ function wpac_plugin_settings(){
     register_setting( 'wpac-reaction-settings', 'wpac_reaction_6_label', ['default' => 'Angry']);
 
     //Register Settings for "wpac-sharing-settings" page
+    register_setting( 'wpac-sharing-settings', 'wpac_sharing_status', ['default' => '1']);
     register_setting( 'wpac-sharing-settings', 'wpac_sharing_desktop_position', ['default' => '1']);
     register_setting( 'wpac-sharing-settings', 'wpac_sharing_mobile_position', ['default' => '3']);
 
@@ -95,6 +97,14 @@ function wpac_plugin_settings(){
         'wpac_save_type',
         'Who Can Like/React',
         'wpac_save_type_cb',
+        'wpac-settings',
+        'wpac_general_settings_section' 
+    );
+    //Font Awesome
+    add_settings_field( 
+        'wpac_font_icons',
+        'Load Font Awesome?',
+        'wpac_font_icons_cb',
         'wpac-settings',
         'wpac_general_settings_section' 
     );
@@ -275,6 +285,13 @@ function wpac_plugin_settings(){
     );
     //Sharing Bar Display & Position
     add_settings_field(
+        'wpac_sharing_status',
+        'Enable/Disable Sharing',
+        'wpac_sharing_status_cb',
+        'wpac-sharing-settings',
+        'wpac_sharing_setting_section'
+    );
+    add_settings_field(
         'wpac_sharing_desktop_position',
         'Sharing Bar Position: Desktop',
         'wpac_sharing_desktop_position_cb',
@@ -311,5 +328,5 @@ function wpac_reaction_labels_section_cb(){
     _e('<p>Manage Reaction Icons Position</p>', 'wpaclike');
 }
 function wpac_sharing_setting_section_cb(){
-    _e('<p>Manage Sharing Icons Position</p>', 'wpaclike');
+    _e('<p>Manage Sharing Icons Position & Status</p>', 'wpaclike');
 }

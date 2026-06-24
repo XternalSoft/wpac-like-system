@@ -47,6 +47,32 @@ function wpac_save_type_cb(){
     </select>
     <?php
 }
+
+//Font Awesome Icons
+function wpac_font_icons_cb(){ 
+    // get the value of the setting we've registered with register_setting()
+    $setting = get_option('wpac_font_icons');
+    // output the field
+    ?>
+    <select name="wpac_font_icons">
+        <?php 
+            switch($setting){
+                case 1:
+                    echo '<option value="1">Yes</option>';
+                    echo '<option value="2">No</option>';
+                    break;
+                case 2:
+                    echo '<option value="2">No</option>';
+                    echo '<option value="1">Yes</option>';
+                    break;
+                default:
+                    echo '<option value="1">Yes</option>';
+                    echo '<option value="2">No</option>';
+            }
+        ?>
+    </select>
+    <?php
+}
 //Error Messages and Status Text
 function wpac_status_message_liked_cb(){ 
     // get the value of the setting we've registered with register_setting()
