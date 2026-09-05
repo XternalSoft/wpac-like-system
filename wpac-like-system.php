@@ -4,8 +4,11 @@
 * Plugin URI: https://github.com/wpacademy/wpac-like-system
 * Author: WPacademy.PK
 * Author URI: https://wpacademy.pk
-* Description: The Most Simple WordPress Post Like, Dislike & Reaction System. 
-* Version: 3.0.3
+* Description: The Most Simple WordPress Post Like, Dislike & Reaction System. Tested up to WordPress 7.1 and PHP 8.5.
+* Version: 3.1.0
+* Requires at least: 5.0
+* Tested up to: 7.1
+* Requires PHP: 7.4
 * License: GPL2
 * License URI:  https://www.gnu.org/licenses/gpl-2.0.html
 * Text Domain: wpaclike
@@ -86,5 +89,3 @@ add_action('wp_ajax_nopriv_wpac_save_reaction_ajax_action', 'wpac_save_reaction_
 require WPAC_PLUGIN_DIR_PATH. 'inc/ajax/reaction-count.php';
 add_action('wp_ajax_wpac_reaction_count_update', 'wpac_reaction_count_update');
 add_action('wp_ajax_nopriv_wpac_reaction_count_update', 'wpac_reaction_count_update');
-
-?>

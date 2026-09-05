@@ -35,6 +35,10 @@ You can change button labels and other settings by visiting `WPAC Settings` Tab
 
 
 ## Changelog
+6. 3.1.0
+    * New: Tested and certified compatible up to WordPress 7.1 and PHP 8.5.
+    * Bug Fix: Corrected copy-paste logical bug in sharing feature status check to restore social sharing bar functionality.
+    * Refactor: Standardized code formatting for buttons and administrative screens.
 5. 3.0.0
     * New Feature: Now non-logged-in users can also like/dislike or React.
     * New Feature: Liked vs Dislike bar.
