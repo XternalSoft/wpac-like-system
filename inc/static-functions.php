@@ -75,8 +75,8 @@ function wpac_get_postion_txt($id){
         
     }
 }
-$sharing_feature_status = wpac_get_postion_txt(get_option('wpac_sharing_status','1'));
-if($sharing_feature_status == 1){
+$sharing_feature_status = get_option( 'wpac_sharing_status', '1' );
+if ( $sharing_feature_status == 1 ) {
     function wpac_social_sharing_icons(){
         $desktop_position = wpac_get_postion_txt(get_option('wpac_sharing_desktop_position','left'));
         $mobile_position = wpac_get_postion_txt(get_option('wpac_sharing_mobile_position','bottom'));
