@@ -74,7 +74,7 @@ function wpac_reaction_position_cb(){
         }
         ?>
     </select>
-    <pre class="wpac-short-code-notice"<?php echo $position_style ?>>Use this shortcode to display on custom location <strong>[WPAC_REACTION_SYSTEM]</strong></pre>
+    <pre class="wpac-short-code-notice">Use this shortcode to display on custom location <strong>[WPAC_REACTION_SYSTEM]</strong></pre>
     <?php
 }
 function wpac_reaction_style_cb(){ 
